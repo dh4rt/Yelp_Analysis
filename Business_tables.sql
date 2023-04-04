@@ -13,17 +13,14 @@ CREATE TABLE review (
 );
 
 CREATE TABLE business (
-    business_id INTEGER NOT NULL,
-    name INTEGER NOT NULL,
-    address INTEGER NOT NULL,
-    city INTEGER NOT NULL,
+    business_id VARCHAR NOT NULL,
+    name VARCHAR NOT NULL,
+    address VARCHAR,
+    city VARCHAR NOT NULL,
     state VARCHAR NOT NULL,
-    postal_code INTEGER NOT NULL,
-    stars VARCHAR NOT NULL,
+    postal_code VARCHAR NOT NULL,
+    stars NUMERIC NOT NULL,
     review_count INTEGER NOT NULL,
-    is_open INTEGER NOT NULL,
-    categories VARCHAR NOT NULL,
-    hours VARCHAR NOT NULL,
     PRIMARY KEY (business_id),
 	UNIQUE (business_id)
 );
