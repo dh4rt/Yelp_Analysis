@@ -4,34 +4,25 @@
 
 
 CREATE TABLE "review" (
-    "review_id" INTEGER   NOT NULL,
-    "user_id" INTEGER   NOT NULL,
-    "business_id" INTEGER   NOT NULL,
-    "stars" VARCHAR   NOT NULL,
-    "useful" VARCHAR   NOT NULL,
-    "funny" VARCHAR   NOT NULL,
-    "cool" VARCHAR   NOT NULL,
+    "review_id" VARCHAR   NOT NULL,
+    "user_id" VARCHAR   NOT NULL,
+    "business_id" VARCHAR   NOT NULL,
+    "stars" INTERGER   NOT NULL,
     "text" VARCHAR   NOT NULL,
-    "date" VARCHAR   NOT NULL,
     CONSTRAINT "pk_review" PRIMARY KEY (
         "business_id"
      )
 );
 
 CREATE TABLE "business" (
-    "business_id" INTEGER   NOT NULL,
-    "name" INTEGER   NOT NULL,
-    "address" INTEGER   NOT NULL,
-    "city" INTEGER   NOT NULL,
+    "business_id" VARCHAR   NOT NULL,
+    "name" VARCHAR   NOT NULL,
+    "address" VARCHAR   NOT NULL,
+    "city" VARCHAR   NOT NULL,
     "state" VARCHAR   NOT NULL,
-    "postal_code" INTERGER   NOT NULL,
+    "postal_code" VARCHAR   NOT NULL,
     "latitude" VARCHAR   NOT NULL,
-    "stars" VARCHAR   NOT NULL,
-    "review_count" INTERGER   NOT NULL,
-    "is_open" INTERGER   NOT NULL,
-    "attributes" VARHCAR   NOT NULL,
     "categories" VARCHAR   NOT NULL,
-    "hours" VARCHAR   NOT NULL,
     CONSTRAINT "pk_business" PRIMARY KEY (
         "business_id"
      )
