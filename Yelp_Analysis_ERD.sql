@@ -5,9 +5,8 @@
 
 CREATE TABLE "review" (
     "review_id" VARCHAR   NOT NULL,
-    "user_id" VARCHAR   NOT NULL,
     "business_id" VARCHAR   NOT NULL,
-    "stars" INTERGER   NOT NULL,
+    "stars" INTEGER   NOT NULL,
     "text" VARCHAR   NOT NULL,
     CONSTRAINT "pk_review" PRIMARY KEY (
         "business_id"
@@ -21,8 +20,7 @@ CREATE TABLE "business" (
     "city" VARCHAR   NOT NULL,
     "state" VARCHAR   NOT NULL,
     "postal_code" VARCHAR   NOT NULL,
-    "latitude" VARCHAR   NOT NULL,
-    "categories" VARCHAR   NOT NULL,
+    "review_count" INTEGER   NOT NULL,
     CONSTRAINT "pk_business" PRIMARY KEY (
         "business_id"
      )
