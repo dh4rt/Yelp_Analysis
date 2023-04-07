@@ -5,9 +5,10 @@ Machine Learning group project
 1. Selected Topic 
 We selected Yelp Review data as a topic because it would allow for practice with Natural Language Processing as well as machine learning to answer the business questions. Yelp Review data is made publicly available by Yelp at their website. The data consists of several files, and we have chosen to work with two of the files: business and reviews.
 
-2. Yelp.com/dataset (link)
+2. [Yelp.com/dataset](Yelp.com/dataset)
+
 The Yelp data is divided into several files.
-The Business file contains individual records for more than ____ businesses. It consists of 14 columns.
+The Business file consists of 14 columns.
 - business_id (primary key, to match with review text from Review file)
 - name
 - address
@@ -48,15 +49,15 @@ The Review file:
 - Do # stars given in a review correlate to sentiment value of the text written in the review? We will analyze the text and assign sentiment value and then run regression model to find correlation value of sentiment and stars.
 - Does length of text in a review correlate to sentiment value?
 - Does length of text in a review correlate to stars given?
--
+
 -If there is time, analyze text for bi-grams and find 50 most popular bi-grams (for example "baked potato" or "grilled chicken"). Then see if there is correlation of bi-grams to sentiment value and/or bi-grams to stars. The idea here is that if a restaurant owner can understand that mentions of certain dishes in their reviews result in higher ratings, then they can train their waitstaff to upsell and recommend those dishes.
 
 ## Creating a Database in pgAdmin
 
 After cleaning the separate Business and Review files, the database tables were created in pgAdmin:
-![image of pgAdmin Business table creation]()
+![image of pgAdmin Business table creation](https://github.com/dh4rt/Yelp_Analysis/blob/main/Business_Table_pgAdmin.png)
 
-![image of pgAdmin Review table creation]()
+![image of pgAdmin Review table creation](https://github.com/dh4rt/Yelp_Analysis/blob/main/Review_Table_pgAdmin.png)
 
 ## Loading the data into the database
 
