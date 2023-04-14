@@ -3,6 +3,7 @@ Machine Learning group project
 
 ## Segment 1 Tasks
 1. Selected Topic 
+
 The Yelp dataset, available free from Yelp, grabbed our attention as a source for our project as both of us were interested to continue practicing with Natural Language Processing as well as machine learning to answer business questions.
 
 2. [Yelp.com/dataset](Yelp.com/dataset)
@@ -10,6 +11,7 @@ The Yelp dataset, available free from Yelp, grabbed our attention as a source fo
 Yelp Review data is made publicly available by Yelp at their website. The data consists of several files, and we have chosen to work with two of the files: business and reviews.
 
 ### The Business file consists of 14 columns.
+
 - business_id (primary key, to match with review text from Review file)
 - name
 - address
@@ -32,6 +34,7 @@ Yelp Review data is made publicly available by Yelp at their website. The data c
     - Out of necessity for file size and learning purposes, the file will be read in with nrows=20000 to start, so that we can work with manageable file sizes.
 
 ### The Review file:
+
 - Review_id
 - user_id
 - business_id 
@@ -47,11 +50,13 @@ Yelp Review data is made publicly available by Yelp at their website. The data c
     - Out of necessity for file size (5.34GB) and learning purposes, the file will be read in with nrows=20000 to start, so that we can work with manageable file sizes.
 
 3. The original questions that the team plans to answer with the project
+
 - Do # stars given in a review correlate to sentiment value of the text written in the review? We will analyze the text and assign sentiment value and then run regression model to find correlation value of sentiment and stars.
 - Does length of text in a review correlate to sentiment value?
 - Does length of text in a review correlate to stars given?
 
 -If there is time, analyze text for bi-grams and find 50 most popular bi-grams (for example "baked potato" or "grilled chicken"). Then see if there is correlation of bi-grams to sentiment value and/or bi-grams to stars. The idea here is that if a restaurant owner can understand that mentions of certain dishes in their reviews result in higher ratings, then they can train their waitstaff to upsell and recommend those dishes.
+
 
 Revised business questions (4/13/23)
 - Does sentiment value of review text align with the star-rating as given by reviewers?
