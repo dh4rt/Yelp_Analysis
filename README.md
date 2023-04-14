@@ -104,10 +104,37 @@ Finally, we exported the Santa Barbara subset into **Santa_Barbara_Yelps.csv**
 
 ## Running the models
 
+### Pre-processing the data
+In order to run the review text through the model, we had to clean up the text. Regular expressions aided in making the text uniform:
+
+![image of preprocessing](https://github.com/dh4rt/Yelp_Analysis/blob/main/Preprocess_code.png)
+
+Before the pre-processed text could be run through the models, it had to be vectorized (made numeric):
+
+![image of vectorize code](https://github.com/dh4rt/Yelp_Analysis/blob/main/Vectorize_text.png)
+
 Update 4/13/23: Lots of pair-coding took place this week, with David taking extra time to build the code to run Naive Bayes model. 
 
+### Support Vector Machine
+
+![image of SVM code](https://github.com/dh4rt/Yelp_Analysis/blob/main/Machine_Learning_SVM.png)
+
+Confusion Matrix:
+
+![image of confusion matrix](https://github.com/dh4rt/Yelp_Analysis/blob/main/ML_SVM_confusion_matrix.png)
+
+Classification Report:
+
+![image of classification code](https://github.com/dh4rt/Yelp_Analysis/blob/main/ML_SVM_classification_code.png)
+
+![image of classification report](https://github.com/dh4rt/Yelp_Analysis/blob/main/ML_SVM_classification_report.png)
+
+**The SVM Classifier results in accuracy of 87% and f-1 score of 93% for positive reviews, and scored 0.0 for negative reviews.**
+
+**_Therefore, we will continue working on machine learning models by resampling our heavily imbalanced data using SMOTE._**
+
 Findings: 
-* We learned that models can take as input either text or numeric data. Some models prefer numeric over text. We had to problem solve for this with _____ model. 
+* We learned that models can take as input either text or numeric data. Some models prefer numeric over text. 
 * We learned that some models take matrix information as input, and that matrix can be either sparse or dense. Some models prefer a dense matrix, such as Naive Bayes. 
 * We learned that in order to transform text into numeric data, it must be vectorized. 
 
