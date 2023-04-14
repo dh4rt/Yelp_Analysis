@@ -138,8 +138,6 @@ Findings:
 * We learned that some models take matrix information as input, and that matrix can be either sparse or dense. Some models prefer a dense matrix, such as Naive Bayes. 
 * We learned that in order to transform text into numeric data, it must be vectorized. 
 
-
-
 Update 4/6/23: none of the models appears fully ready to run with final data. Further refinement is necessary. So far, the three models we have tried with the merged data are the following:
 
   1. Random Forest Classifier
