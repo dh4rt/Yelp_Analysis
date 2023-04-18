@@ -1,18 +1,20 @@
 # Yelp_Analysis
 Machine Learning group project
+* Data Analyst - David Hart
+* Data Analyst - Elizabeth Bolin
 
-## Segment 1 Tasks
-1. Selected Topic 
+## Overall Project Objectives
+The Yelp app allows for customers to write text-based reviews and leave star-ratings for their experiences at businesses. Our objective is to harness the sentiment in the text of the review by comparing it to the star-rating, and to create positive and negative wordclouds which would give at a glance an idea of the reasons for the positive or negative review. We want to provide a visualization of the reasons why customers love or dislike a business.  
 
 The Yelp dataset, available free from Yelp, grabbed our attention as a source for our project as both of us were interested to continue practicing with Natural Language Processing as well as machine learning to answer business questions.
 
-2. [Yelp.com/dataset](Yelp.com/dataset)
+## The dataset  [Yelp.com/dataset](Yelp.com/dataset)
 
-Yelp Review data is made publicly available by Yelp at their website. The data consists of several files, and we have chosen to work with two of the files: business and reviews.
+The data consists of several files, and we have chosen to work with two of the files: business and reviews.
 
 ### The Business file consists of 14 columns.
 
-- business_id (primary key, to match with review text from Review file)
+- business_id: ID of the business
 - name
 - address
 - city
@@ -20,9 +22,9 @@ Yelp Review data is made publicly available by Yelp at their website. The data c
 - postal_code
 - latitude
 - longitude
-- stars
-- review_count
-- is_open: 0 for closed and 1 for open
+- stars: average rating of the business
+- review_count: number of reviews the business received
+- is_open: '0' for closed and '1' for open
 - attributes: various special characteristics of a business
 - categories: contains information of type of business
 - hours
@@ -31,7 +33,9 @@ Yelp Review data is made publicly available by Yelp at their website. The data c
 #### Cleaning the Business Data for analysis
     - Keep only '1' value in 'is_open' column
     - Drop columns stars, review_count, is_open, hours, attributes, latitude, longitude
+      * later we decide to keep latitude and longitude for business data visualization 
     - Out of necessity for file size and learning purposes, the file will be read in with nrows=20000 to start, so that we can work with manageable file sizes.
+      * further exploration with reading in the original .json data allowed for reading in 100,000 records
 
 ### The Review file:
 
@@ -47,9 +51,10 @@ Yelp Review data is made publicly available by Yelp at their website. The data c
 
 #### Cleaning the Review Data for analysis
     - Drop columns user_id, useful, funny, cool, date
-    - Out of necessity for file size (5.34GB) and learning purposes, the file will be read in with nrows=20000 to start, so that we can work with manageable file sizes.
+    - Out of necessity for file size (5.34GB) and learning purposes, the file will be read in with nrows=20000 to start, so that we can work with manageable file sizes. 
+      * later we find that we can successfully read in 100000 records
 
-3. The original questions that the team plans to answer with the project
+The original questions that the team plans to answer with the project
 
 - Do # stars given in a review correlate to sentiment value of the text written in the review? We will analyze the text and assign sentiment value and then run regression model to find correlation value of sentiment and stars.
 - Does length of text in a review correlate to sentiment value?
@@ -63,25 +68,18 @@ Revised business questions (4/13/23)
 - Can we tease out the words associated with positive or negative reviews for a particular business?
 - Which machine learning models will be best at predicting review positivity or negativity given the text of the review?
 
-## Creating a Database in pgAdmin
+## Creating a Database and loading the data in pgAdmin
 
 After cleaning the separate Business and Review files, the database tables were created in pgAdmin:
 ![image of pgAdmin Business table creation](https://github.com/dh4rt/Yelp_Analysis/blob/main/Business_Table_pgAdmin.png)
 
 ![image of pgAdmin Review table creation](https://github.com/dh4rt/Yelp_Analysis/blob/main/Review_Table_pgAdmin.png)
 
-## Loading the data into the database
-
-Cleaned files were saved as .csv files and then imported into the pgAdmin tables:
-![image of pgAdmin Business table loaded with data]()
-
-![image of pgAdmin Review table loaded with data]()
-
 ## Data in the two tables is joined
 
-We extracted 20000 rows of reviews and 20000 rows of businesses. We joined the data on the business_id column and matched reviews with business data. This resulted in a dataframe with 23557 rows. We dropped the null values, and exported the merged file as **joined_data_23557.csv** for our modeling. 
+At first, we extracted 20000 rows of reviews and 20000 rows of businesses. We joined the data on the business_id column and matched reviews with business data. This resulted in a dataframe with 23557 rows. We dropped the null values, and exported the merged file as **joined_data_23557.csv** for our modeling. 
 
-![image of pgAdmin merged file]()
+![image of pgAdmin merged file](https://github.com/dh4rt/Yelp_Analysis/blob/main/merged_table_pgAdmin.png)
 
 Revised table creation (4/13/23)
 
@@ -98,7 +96,7 @@ WHERE postal_code = '93101';
 SELECT *
 FROM santa_barbara;
 ```
-![image of Santa Barbara records SQL]()
+![image of Santa Barbara records SQL](https://github.com/dh4rt/Yelp_Analysis/blob/main/santa_barbara_sql.png)
 
 Finally, we exported the Santa Barbara subset into **Santa_Barbara_Yelps.csv**
 
