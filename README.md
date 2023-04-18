@@ -83,7 +83,7 @@ At first, we extracted 20000 rows of reviews and 20000 rows of businesses. We jo
 
 Revised table creation (4/13/23)
 
-This week we decided to try our Yelp Review data analysis visualizations using a smaller subset of the records. We wanted to get the most records available on our dataset, so we searched for the mode (most frequently appearing) postal_code value. The result was 93101: Santa Barbara. 
+This week we decided to try our Yelp Review data analysis visualizations using a smaller subset of the records representing one geographical area. We wanted to get the most records available on our dataset, so we searched for the *mode* (most frequently appearing) postal_code value. The result was 93101: Santa Barbara. 
 
 Next, in pgAdmin, we queried the joined_dataset: 
 
@@ -101,6 +101,9 @@ FROM santa_barbara;
 Finally, we exported the Santa Barbara subset into **Santa_Barbara_Yelps.csv**
 
 ## Running the models
+1. use Santa_Barbara_Yelps.csv in models (smaller # of records)
+2. use new dataset created by pulliing 100k business records, 100k review records, and joining on business_id.  (4/16/23)
+
 
 ### Pre-processing the data
 In order to run the review text through the model, we had to clean up the text. Regular expressions aided in making the text uniform:
@@ -136,23 +139,21 @@ Findings:
 * We learned that some models take matrix information as input, and that matrix can be either sparse or dense. Some models prefer a dense matrix, such as Naive Bayes. 
 * We learned that in order to transform text into numeric data, it must be vectorized. 
 
-Update 4/6/23: none of the models appears fully ready to run with final data. Further refinement is necessary. So far, the three models we have tried with the merged data are the following:
-
   1. Random Forest Classifier
 
   2. Decision Tree
 
-  3. Support Vector Machines
+  3. Support Vector Classification
 
-  4. Consider running a classification model to predict categorical "is the review rating high or not" like Naive Bayes
+  4. Naive Bayes
+
+  5. TFIDF
+
+  6. Support Vector Machine
 
 ## Visualizations
 
-One model that we ran also has a heatmap plot for the confusion matrix: 
-
-![image of heatmap]()
-
-We also are interested in how wordclouds are created, and have read numerous articles on different ways to code and format wordclouds. Again, we ran into roadblocks on the text input for the wordclouds, and found that we had to pay close attention to the type of data input for text, ie. array, string, object, etc.
+We are interested in how wordclouds are created, and have read numerous articles on different ways to code and format wordclouds. Again, we ran into roadblocks on the text input for the wordclouds, and found that we had to pay close attention to the type of data input for text, ie. array, string, object, etc.
 
 ![image of regular wordcloud]()
 
