@@ -1,18 +1,20 @@
 # Yelp_Analysis
 Machine Learning group project
+* Data Analyst - David Hart
+* Data Analyst - Elizabeth Bolin
 
-## Segment 1 Tasks
-1. Selected Topic 
+## Overall Project Objectives
+The Yelp app allows for customers to write text-based reviews and leave star-ratings for their experiences at businesses. Our objective is to harness the sentiment in the text of the review by comparing it to the star-rating, and to create positive and negative wordclouds which would give at a glance an idea of the reasons for the positive or negative review. We want to provide a visualization of the reasons why customers love or dislike a business.  
 
 The Yelp dataset, available free from Yelp, grabbed our attention as a source for our project as both of us were interested to continue practicing with Natural Language Processing as well as machine learning to answer business questions.
 
-2. [Yelp.com/dataset](Yelp.com/dataset)
+## The dataset  [Yelp.com/dataset](Yelp.com/dataset)
 
-Yelp Review data is made publicly available by Yelp at their website. The data consists of several files, and we have chosen to work with two of the files: business and reviews.
+The data consists of several files, and we have chosen to work with two of the files: business and reviews.
 
 ### The Business file consists of 14 columns.
 
-- business_id (primary key, to match with review text from Review file)
+- business_id: ID of the business
 - name
 - address
 - city
@@ -20,9 +22,9 @@ Yelp Review data is made publicly available by Yelp at their website. The data c
 - postal_code
 - latitude
 - longitude
-- stars
-- review_count
-- is_open: 0 for closed and 1 for open
+- stars: average rating of the business
+- review_count: number of reviews the business received
+- is_open: '0' for closed and '1' for open
 - attributes: various special characteristics of a business
 - categories: contains information of type of business
 - hours
@@ -31,7 +33,9 @@ Yelp Review data is made publicly available by Yelp at their website. The data c
 #### Cleaning the Business Data for analysis
     - Keep only '1' value in 'is_open' column
     - Drop columns stars, review_count, is_open, hours, attributes, latitude, longitude
+      * later we decide to keep latitude and longitude for business data visualization 
     - Out of necessity for file size and learning purposes, the file will be read in with nrows=20000 to start, so that we can work with manageable file sizes.
+      * further exploration with reading in the original .json data allowed for reading in 100,000 records
 
 ### The Review file:
 
@@ -47,9 +51,10 @@ Yelp Review data is made publicly available by Yelp at their website. The data c
 
 #### Cleaning the Review Data for analysis
     - Drop columns user_id, useful, funny, cool, date
-    - Out of necessity for file size (5.34GB) and learning purposes, the file will be read in with nrows=20000 to start, so that we can work with manageable file sizes.
+    - Out of necessity for file size (5.34GB) and learning purposes, the file will be read in with nrows=20000 to start, so that we can work with manageable file sizes. 
+      * later we find that we can successfully read in 100000 records
 
-3. The original questions that the team plans to answer with the project
+The original questions that the team plans to answer with the project
 
 - Do # stars given in a review correlate to sentiment value of the text written in the review? We will analyze the text and assign sentiment value and then run regression model to find correlation value of sentiment and stars.
 - Does length of text in a review correlate to sentiment value?
@@ -137,8 +142,6 @@ Findings:
 * We learned that models can take as input either text or numeric data. Some models prefer numeric over text. 
 * We learned that some models take matrix information as input, and that matrix can be either sparse or dense. Some models prefer a dense matrix, such as Naive Bayes. 
 * We learned that in order to transform text into numeric data, it must be vectorized. 
-
-
 
 Update 4/6/23: none of the models appears fully ready to run with final data. Further refinement is necessary. So far, the three models we have tried with the merged data are the following:
 
