@@ -68,25 +68,18 @@ Revised business questions (4/13/23)
 - Can we tease out the words associated with positive or negative reviews for a particular business?
 - Which machine learning models will be best at predicting review positivity or negativity given the text of the review?
 
-## Creating a Database in pgAdmin
+## Creating a Database and loading the data in pgAdmin
 
 After cleaning the separate Business and Review files, the database tables were created in pgAdmin:
 ![image of pgAdmin Business table creation](https://github.com/dh4rt/Yelp_Analysis/blob/main/Business_Table_pgAdmin.png)
 
 ![image of pgAdmin Review table creation](https://github.com/dh4rt/Yelp_Analysis/blob/main/Review_Table_pgAdmin.png)
 
-## Loading the data into the database
-
-Cleaned files were saved as .csv files and then imported into the pgAdmin tables:
-![image of pgAdmin Business table loaded with data]()
-
-![image of pgAdmin Review table loaded with data]()
-
 ## Data in the two tables is joined
 
-We extracted 20000 rows of reviews and 20000 rows of businesses. We joined the data on the business_id column and matched reviews with business data. This resulted in a dataframe with 23557 rows. We dropped the null values, and exported the merged file as **joined_data_23557.csv** for our modeling. 
+At first, we extracted 20000 rows of reviews and 20000 rows of businesses. We joined the data on the business_id column and matched reviews with business data. This resulted in a dataframe with 23557 rows. We dropped the null values, and exported the merged file as **joined_data_23557.csv** for our modeling. 
 
-![image of pgAdmin merged file]()
+![image of pgAdmin merged file](https://github.com/dh4rt/Yelp_Analysis/blob/main/merged_table_pgAdmin.png)
 
 Revised table creation (4/13/23)
 
@@ -103,7 +96,7 @@ WHERE postal_code = '93101';
 SELECT *
 FROM santa_barbara;
 ```
-![image of Santa Barbara records SQL]()
+![image of Santa Barbara records SQL](https://github.com/dh4rt/Yelp_Analysis/blob/main/santa_barbara_sql.png)
 
 Finally, we exported the Santa Barbara subset into **Santa_Barbara_Yelps.csv**
 
