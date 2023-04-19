@@ -155,8 +155,9 @@ Findings:
 
 We are interested in how wordclouds are created, and have read numerous articles on different ways to code and format wordclouds. Again, we ran into roadblocks on the text input for the wordclouds, and found that we had to pay close attention to the type of data input for text, ie. array, string, object, etc.
 
-![image of regular wordcloud]()
+Finally, we filtered text by positive label or negative label, then combined all review text into one list of words for input to wordcloud model. The results are below- a positive word cloud and a negative wordcloud.
 
-We also experimented with building a wordcloud based on frequency of words in the text. In order to do this, we had to run a tfIDF model to obtain frequency values for each word. Then we used the frequencies as input for the wordcloud.
+![image of regular wordcloud](https://github.com/dh4rt/Yelp_Analysis/blob/main/pos_wordcloud.png)
 
-![image of frequency wordcloud]()
+
+![image of frequency wordcloud](https://github.com/dh4rt/Yelp_Analysis/blob/main/neg_wordcloud.png)
