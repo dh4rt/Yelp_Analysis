@@ -100,11 +100,6 @@ FROM santa_barbara;
 
 Finally, we exported the Santa Barbara subset into **Santa_Barbara_Yelps.csv**
 
-## Running the models
-1. use Santa_Barbara_Yelps.csv in models (smaller # of records)
-2. use new dataset created by pulliing 100k business records, 100k review records, and joining on business_id.  (4/16/23)
-
-
 ### Pre-processing the data
 In order to run the review text through the model, we had to clean up the text. Regular expressions aided in making the text uniform:
 
@@ -116,6 +111,25 @@ Before the pre-processed text could be run through the models, it had to be vect
 
 Update 4/13/23: Lots of pair-coding took place this week, with David taking extra time to build the code to run Naive Bayes model. 
 
+## Running the models
+1. use Santa_Barbara_Yelps.csv in models (smaller # of records)
+2. use new dataset created by pulliing 100k business records, 100k review records, and joining on business_id.  (4/16/23)
+
+**Logistic Regression**
+Our final model was run using Three_Table.csv, which is the top three restaurant by number of reviews, in Santa Barbara zip code 93101. The best model we ran is the Logistic Regression and resulted in the following confusion matrix and classification reports:
+
+**Confusion Matrix**
+
+![image of confusion matrix](https://github.com/dh4rt/Yelp_Analysis/blob/main/Images/LogReg_CM.png)
+
+**Classification Report**
+
+![image of classification report](https://github.com/dh4rt/Yelp_Analysis/blob/main/Images/LogReg_Classification.png)
+
+**Results of Logistics Regression Model**
+It claims to have 100% precision in predicting negative reviews, and well above average precision in predicting positive reviews. However, there were more false-negatives.
+
+## Previous runs of other models provided less accurate scores:
 ### Support Vector Machine
 
 ![image of SVM code](https://github.com/dh4rt/Yelp_Analysis/blob/main/Machine_Learning_SVM.png)
@@ -136,7 +150,7 @@ Classification Report:
 
 Findings: 
 * We learned that models can take as input either text or numeric data. Some models prefer numeric over text. 
-* We learned that some models take matrix information as input, and that matrix can be either sparse or dense. Some models prefer a dense matrix, such as Naive Bayes. 
+* We learned that some models take matrix information as input, and that matrix can be either sparse or dense. Some models prefer a dense matrix. 
 * We learned that in order to transform text into numeric data, it must be vectorized. 
 
   1. Random Forest Classifier
